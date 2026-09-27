@@ -1,0 +1,12 @@
+[Unit]
+Description=FazendaInteligente - job de IA (retreino e predicao, RF04)
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/fazenda-inteligente
+EnvironmentFile=/opt/fazenda-inteligente/.env
+ExecStart=/opt/fazenda-inteligente/venv/bin/python -m app.ml.job
+# Protege a API: o job e morto antes de esgotar a RAM da VM (512 MB)
+MemoryMax=300M
+Nice=10

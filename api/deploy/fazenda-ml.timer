@@ -1,0 +1,10 @@
+[Unit]
+Description=FazendaInteligente - job de IA a cada hora (RF04 / UC06)
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=120
+Persistent=true
+
+[Install]
+WantedBy=timers.target
