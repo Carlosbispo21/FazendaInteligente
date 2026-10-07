@@ -2,10 +2,16 @@
 /*
 !/api/
 !/dashboard/
+!/frontend/
+!/README.md
 !/.gitignore
 
 # Segredos
 .env
+.env.*
+!.env.example
+node_modules/
+dist/
 dashboard/.streamlit/secrets.toml
 
 # Banco e cache
@@ -15,4 +21,5 @@ dashboard/.streamlit/secrets.toml
 __pycache__/
 *.pyc
 .venv/
+.venv-tests/
 venv/

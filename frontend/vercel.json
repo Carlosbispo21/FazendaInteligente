@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/proxy.js": { "maxDuration": 30 }
+  },
+  "rewrites": [
+    { "source": "/api/fazenda/:path*", "destination": "/api/proxy?path=:path*" },
+    { "source": "/inicio", "destination": "/index.html" },
+    { "source": "/cultura", "destination": "/index.html" },
+    { "source": "/previsoes", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/:path*",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    }
+  ]
+}
